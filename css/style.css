@@ -2,7 +2,21 @@
 
 /*HOME*/
 #mapa, 
-#cerca { min-height:200px; background-color:#ccc; }
+#cerca { min-height:200px; background-color:#ccc; display:flex; justify-content:center; align-items:center; }
 .principal-home { margin-bottom:35px; }
 
-.nav-tabs .nav-link.active { color: #fff; background-color: #ccc; border-color: #dee2e6 #dee2e6 #ccc; }
+.nav-tabs .nav-link.active { color: #fff; background-color: #ccc; 
+							 border-color: #dee2e6 #dee2e6 #ccc; }
+
+/*FICHA HOME*/
+.route-thumb img { width:100%; }
+.description { padding:4%; }
+	.description .type { font-size:1.1em; }
+	.description .title {  }
+	.description .zone { font-size:.8em; }
+
+.order-results { background-color:#ccc; padding:1%; }
+
+/*FOOTER*/
+footer { text-align:center; background-color:#000; color:#fff;
+	     margin-bottom:0; padding:4%; margin-top:35px; }
