@@ -43,20 +43,22 @@
   <div class="col-md-12 p-0">
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-cerca-tab" data-toggle="tab" href="#cerca" role="tab" aria-controls="nav-home" aria-selected="true">Cerca</a>
-        <a class="nav-item nav-link" id="nav-mapa-tab" data-toggle="tab" href="#mapid" role="tab" aria-controls="nav-profile" aria-selected="false">Mapa</a>
+        <a class="nav-item nav-link active" id="nav-cerca-tab" data-toggle="tab" href="#cerca" role="tab" aria-controls="nav-home" aria-selected="true" onclick="hideMap()">Cerca</a>
+        <a class="nav-item nav-link" id="nav-mapa-tab" data-toggle="tab" href="#mapid" role="tab" aria-controls="nav-profile" aria-selected="false" onclick="displayMap()">Mapa</a>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="cerca" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="search-banner">
         <form>
           <label>Cerca rutes per nom, pais, regió</label>
           <input type="text">
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+      </div>
 
       </div>
-      <div class="tab-pane fade" id="mapid" style="height:400px;" role="tabpanel" aria-labelledby="nav-profile-tab">Mapa anirà aquí</div>
+      <div class="tab-pane fade" id="mapid" style="height:400px; width:100%;" role="tabpanel" aria-labelledby="nav-profile-tab">Mapa anirà aquí</div>
     </div>
   </div>
 </div>
@@ -96,7 +98,7 @@
       </form>
     </div>
     <div class="col-md-9">
-      
+
     </div>
   </div>
 </div>
@@ -146,6 +148,22 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
 <script>
+/* Dues funcions perque el mapa funcioni en tabs de Boostrap */
+function displayMap()
+{
+    document.getElementById( 'mapid' ).style.display = "block";
+    /*Carreguem elmapaalfer click al TAB*/
+    initialize();
+}
+
+function hideMap()
+{
+    document.getElementById( 'mapid' ).style.display = "none";
+}
+
+function initialize()
+{
+
   var mymap = L.map('mapid').setView([41.419260, 2.174940], 13);
 
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -158,6 +176,8 @@ touchZoom : false
 
   var marker = L.marker([41.419260, 2.174940], {draggable: true}).bindPopup("Estic a casa").addTo(mymap);
   var marker = L.marker([41.414500, 2.180870], {draggable: true}).bindPopup("Estic molt a prop de casa").addTo(mymap);
+}
+
 
 </script>
 <body>
